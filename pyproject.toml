@@ -1,0 +1,58 @@
+[project]
+name = "sora-python-sdk-samples"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [{ name = "zztkm", email = "zztkm@tsurutatakumi.info" }]
+dependencies = ["sora-sdk>=2023.3.1"]
+requires-python = "==3.11.*"
+readme = "README.md"
+license = { text = "MIT" }
+
+
+[tool.pdm]
+distribution = false
+
+[tool.pdm.dev-dependencies]
+dev = ["pytest>=8.0.0", "ruff>=0.2.1"]
+
+[tool.pdm.scripts]
+lint = "ruff check"
+fmtcheck = "ruff format --check"
+fix = "ruff check  --fix"
+fmt = "ruff format"
+
+[tool.ruff]
+src = ["src", "tests"]
+exclude = [
+    ".venv",
+    "dist",
+    "config",
+    ".git",
+    ".eggs",
+    "__pypackages__",
+    ".tox",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".hypothesis",
+    ".ruff_cache",
+]
+
+line-length = 128
+target-version = "py311"
+
+[tool.ruff.lint]
+# TODO: lint rule を追加する
+select = ["I", "E", "F", "W", "B", "UP"]
+
+[tool.ruff.format]
+# Like Black, use double quotes for strings.
+quote-style = "double"
+
+# Like Black, indent with spaces, rather than tabs.
+indent-style = "space"
+
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"
